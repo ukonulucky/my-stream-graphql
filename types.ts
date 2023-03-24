@@ -9,7 +9,10 @@ export type streamType = {
       url: string
     },
     title: string,
-    updatedAt: string
+    updatedAt: string,
+    streamDescription:{
+      html: any
+    }
 
 }
 

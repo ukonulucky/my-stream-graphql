@@ -9,11 +9,16 @@ import { streamType, getStaticPropsTypes, propTypes } from "../../types"
 
 function SingleStrem({propsStream}:propTypes) {
   console.log(propsStream)
+
   return (
     <div>
-      {
+    <h2>
+    {
       propsStream.guestName
       }
+    </h2>
+  <div dangerouslySetInnerHTML={{__html:propsStream.streamDescription.html}} />
+    
     </div>
   )
 }
@@ -28,7 +33,7 @@ export async function getStaticPaths(){
         }
         `
       })
-console.log("this is coming from the getStatic paths", data)
+
 
 const paths = data.streams.map((i:streamType) => {
  return {
@@ -61,6 +66,7 @@ export async function getStaticProps({params}:getStaticPropsTypes){
         updatedAt
         streamDescription{
           raw
+          html
     }
         
       }
